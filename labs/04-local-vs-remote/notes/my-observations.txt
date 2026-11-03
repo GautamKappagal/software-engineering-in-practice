@@ -1,0 +1,1 @@
+origin is the default name given to the remote repository that one clones from.
