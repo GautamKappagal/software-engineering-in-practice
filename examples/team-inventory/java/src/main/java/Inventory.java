@@ -42,7 +42,7 @@ public class Inventory {
         if (lowStock.isEmpty()) {
             return "Nothing to reorder.";
         } else {
-            return "Items to reorder: " + String.join(", ", lowStock);
+            return "Reorder needed: " + String.join(", ", lowStock);
         }
     }
 

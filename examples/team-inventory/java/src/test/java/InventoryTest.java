@@ -43,4 +43,13 @@ class InventoryTest {
 
         assertEquals("Nothing to reorder.", result);
     }
+
+    @Test
+    void reorderReportReturnsReorderNeededWhenItemsBelowThreshold() {
+        List<Inventory.Item> inventory = List.of(new Inventory.Item("Milk", 2, 1));
+
+        String result = Inventory.reorderReport(inventory, 5);
+
+        assertEquals("Reorder needed: Milk", result);
+    }
 }
