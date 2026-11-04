@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -32,5 +33,14 @@ class InventoryTest {
         List<String> result = Inventory.lowStockItems(inventory, 5);
 
         assertEquals(List.of("Milk"), result);
+    }
+
+    @Test
+    void reorderReportReturnsNothingToReorderWhenNoItemsBelowThreshold() {
+        List<Inventory.Item> inventory = List.of(new Inventory.Item("Flour", 40, 120));
+
+        String result = Inventory.reorderReport(inventory, 5);
+
+        assertEquals("Nothing to reorder.", result);
     }
 }
