@@ -13,6 +13,8 @@ public class NotifierCheck {
             );
         }
 
+        ReceiptService.sendReceiptReady(new SilentNotifier(), "A123");
+
         System.out.println("All checks passed");
     }
 }
