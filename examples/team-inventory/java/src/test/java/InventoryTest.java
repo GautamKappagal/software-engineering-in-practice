@@ -49,6 +49,6 @@ class InventoryTest {
 
         String result = Inventory.reorderReport(inventory, 5);
 
-        assertEquals("Reorder needed: Milk", result);
+        assertEquals("Reorder needed: Milk, Flour", result);
     }
 }
