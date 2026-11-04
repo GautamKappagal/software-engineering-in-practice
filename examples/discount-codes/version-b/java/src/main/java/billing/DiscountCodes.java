@@ -15,6 +15,7 @@ public class DiscountCodes {
 
     private static final Map<String, DoubleUnaryOperator> CODES =
             Map.of(
+                    "SAVE20", amount -> amount * 0.20,
                     "SAVE10", amount -> amount * 0.10,
                     "SAVE5", amount -> 5.0);
 

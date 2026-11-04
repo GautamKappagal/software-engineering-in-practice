@@ -83,6 +83,9 @@ public class Calculator {
         double codeDiscount = 0.0;
         if (discountCode != null) {
             switch (discountCode) {
+                case "SAVE20":
+                    codeDiscount = afterLoyalty * 0.20;
+                    break;
                 case "SAVE10":
                     codeDiscount = afterLoyalty * 0.10;
                     break;

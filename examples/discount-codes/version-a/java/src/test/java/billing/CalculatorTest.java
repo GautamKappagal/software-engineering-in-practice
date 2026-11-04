@@ -45,4 +45,12 @@ class CalculatorTest {
                 IllegalArgumentException.class,
                 () -> Calculator.calculateBill(SMALL_ORDER, 0.15, "BOGUS"));
     }
+
+    @Test
+    void save20AppliesAfterLoyaltyDiscount() {
+        Calculator.Bill bill = Calculator.calculateBill(LARGE_ORDER, 0.15, "SAVE20");
+
+        assertEquals(16.8, bill.discount);
+        assertEquals(53.14, bill.total);
+    }
 }
