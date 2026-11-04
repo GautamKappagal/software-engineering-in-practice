@@ -15,6 +15,17 @@ public class Inventory {
         }
     }
 
+    public static List<String> expiringItems(List<Item> inventory, int days) {
+        List<String> expiring = new ArrayList<>();
+
+        for (Item item : inventory) {
+            if (item.expiresInDays <= days) {
+                expiring.add(item.name);
+            }
+        }
+        return expiring;
+    }
+
     public static List<String> lowStockItems(List<Item> inventory, int threshold) {
         List<String> lowStock = new ArrayList<>();
 
@@ -31,6 +42,12 @@ public class Inventory {
         for (Item item : inventory) {
             lines.add(item.name + ": " + item.quantity + " units");
         }
+
+        List<String> expiring = expiringItems(inventory, 3);
+        if (!expiring.isEmpty()) {
+            lines.add("Expiring soon: " + String.join(", ", expiring));
+        }
+
 
         List<String> lowStock = lowStockItems(inventory, 5);
         if (!lowStock.isEmpty()) {
