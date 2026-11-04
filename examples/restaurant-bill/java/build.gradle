@@ -1,5 +1,7 @@
 plugins {
     id 'application'
+    id 'pmd'
+    id 'com.diffplug.spotless' version '8.10.3'
 }
 
 java {
@@ -24,4 +26,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
+}
+
+pmd {
+    toolVersion = '7.28.0'
+    ruleSetFiles = files('config/pmd/ruleset.xml')
+    ruleSets = []
 }
