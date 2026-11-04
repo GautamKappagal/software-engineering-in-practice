@@ -1,0 +1,16 @@
+Gradle refused to build the project, because the version number we entered was different from the expected version. The Java version is declared in the build.gradle file. Trying to build this project with JDK 17 instead of 21 would again lead to a build failure.
+
+"features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.13"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.27"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "jdkDistro": "tem"
+    }
+  }
+
+These lines provision Python, Go and Java by declaring their appropriate versions.
