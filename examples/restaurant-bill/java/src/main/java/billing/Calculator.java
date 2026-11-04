@@ -58,7 +58,7 @@ public class Calculator {
     public static Bill calculateBill(List<Item> items, double tipRate) {
         double subtotal = calculateSubtotal(items);
         double discount = calculateDiscount(subtotal);
-        double tax = calculateTax(subtotal);
+        double tax = calculateTax(subtotal - discount);
         double tip = calculateTip(subtotal - discount, tipRate);
         double total = subtotal - discount + tax + tip;
 

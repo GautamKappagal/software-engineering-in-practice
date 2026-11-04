@@ -69,4 +69,15 @@ class CalculatorTest {
         assertEquals(5.70, bill.tip, 0.01);
         assertEquals(46.74, bill.total, 0.01);
     }
+
+    @Test
+    void calculateBillAppliesTaxAfterDiscountOnLargeOrder() {
+        List<Calculator.Item> items = List.of(
+                new Calculator.Item("Steak", 30.00, 2));
+
+        Calculator.Bill bill = Calculator.calculateBill(items, 0.15);
+
+        assertEquals(4.32, bill.tax, 0.01);
+        assertEquals(66.42, bill.total, 0.01);
+    }
 }
