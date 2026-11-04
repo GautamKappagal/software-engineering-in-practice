@@ -17,7 +17,8 @@ public class DiscountCodes {
             Map.of(
                     "SAVE20", amount -> amount * 0.20,
                     "SAVE10", amount -> amount * 0.10,
-                    "SAVE5", amount -> 5.0);
+                    "SAVE5", amount -> 5.0,
+                    "SAVE_FLAT2", amount -> 2.0);
 
     public static double apply(double amount, String code) {
         DoubleUnaryOperator fn = CODES.get(code);

@@ -18,6 +18,11 @@ class DiscountCodesTest {
     }
 
     @Test
+    void saveFlat2ReturnsFlatTwo() {
+        assertEquals(2.0, DiscountCodes.apply(100.0, "SAVE_FLAT2"));
+    }
+
+    @Test
     void unknownCodeThrows() {
         assertThrows(IllegalArgumentException.class, () -> DiscountCodes.apply(100.0, "BOGUS"));
     }
