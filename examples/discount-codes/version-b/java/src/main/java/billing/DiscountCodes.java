@@ -24,6 +24,7 @@ public class DiscountCodes {
         if (fn == null) {
             throw new IllegalArgumentException("unknown discount code: " + code);
         }
+
         return fn.applyAsDouble(amount);
     }
 }
