@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -13,4 +14,14 @@ class InventoryTest {
 
         assertTrue(result.contains("Flour: 40 units"));
     }
+
+    @Test
+    void expiringItemsListsItemsWithinDays() {
+        List<Inventory.Item> inventory = List.of(new Inventory.Item("Milk", 2, 1));
+
+        List<String> result = Inventory.expiringItems(inventory, 3);
+
+        assertEquals(List.of("Milk"), result);
+    }
+
 }
