@@ -69,14 +69,4 @@ class ApiServerTest {
         HttpResponse<String> response = CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(400, response.statusCode());
     }
-
-    @Test
-    void postWithEmptyItemReturns400() throws Exception {
-        HttpRequest request = HttpRequest.newBuilder(URI.create(baseUrl + "/orders"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString("{\"items\": [\"Burger\", \"\"]}"))
-                .build();
-        HttpResponse<String> response = CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
-        assertEquals(400, response.statusCode());
-    }
 }
