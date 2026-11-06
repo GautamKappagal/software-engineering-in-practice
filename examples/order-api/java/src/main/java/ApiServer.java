@@ -55,6 +55,13 @@ public class ApiServer implements HttpHandler {
             return;
         }
 
+        for (Object item : items) {
+            if (!(item instanceof String value) || value.trim().isEmpty()) {
+                writeError(exchange, 400, "each item must be a non-empty string");
+                return;
+            }
+        }
+
         String id = String.valueOf(nextId.getAndIncrement());
         @SuppressWarnings("unchecked")
         Order order = new Order(id, (List<Object>) items, "received");
